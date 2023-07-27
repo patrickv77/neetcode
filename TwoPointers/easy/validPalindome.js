@@ -9,11 +9,15 @@
 
 // runtime 63ms -- beats 92.64%
 // memory 44.45mb -- beats 79.78%
+
+// runtime 58ms -- beats 97.83%
+// memory 44.68mb -- beats 74.25%
 var isPalindrome = function(s) {
   // remove all non alpha-numeric chars
   const replaced = s.replace(/[^a-z0-9]/gi, '').toLowerCase();
-  for(let i = 0, j = replaced.length-1; i <= replaced.length/2, j >= replaced.length/2; i++, j--){
-    if(replaced[i] !== replaced[j]) return false;
+  for(let i = 0; i <= replaced.length/2; i++){
+    console.log(replaced[i],replaced[replaced.length - 1 - i])
+    if(replaced[i] !== replaced[replaced.length - 1 - i]) return false;
   }
   return true;
 };
