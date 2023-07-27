@@ -7,7 +7,8 @@
  * s consists only of printable ASCII characters.
  */
 
-
+// runtime 63ms -- beats 92.64%
+// memory 44.45mb -- beats 79.78%
 var isPalindrome = function(s) {
   // remove all non alpha-numeric chars
   const replaced = s.replace(/[^a-z0-9]/gi, '').toLowerCase();
