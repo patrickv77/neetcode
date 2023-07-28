@@ -10,6 +10,7 @@
 // runtime 63ms -- beats 92.64%
 // memory 44.45mb -- beats 79.78%
 
+// removed j variable from for loop and adjusted accordingly
 // runtime 58ms -- beats 97.83%
 // memory 44.68mb -- beats 74.25%
 var isPalindrome = function(s) {
