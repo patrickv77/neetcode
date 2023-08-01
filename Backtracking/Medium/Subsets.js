@@ -7,6 +7,9 @@
  * -10 <= nums[i] <= 10
  * All the numbers of nums are unique.
  */
+
+// runtime 62ms -- beats 67.43%
+// memory 44.18mb -- beats 37.26%
 var subsets = function(nums) {
     let res = [];
     const subsetsHelper = (n, arr) => {
