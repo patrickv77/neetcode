@@ -4,7 +4,11 @@
  */
 var KthLargest = function(k, nums) {
     this.k = k;
-    this.pq = nums.sort((a,b) => a-b).slice(nums.length - k);
+    this.pq = nums.sort((a,b) => a-b);
+    if(nums.length > k) {
+      this.pq = this.pq.slice(nums.length - k);
+    }
+    // console.log(this.pq);
 };
 
 /** 
@@ -25,7 +29,6 @@ KthLargest.prototype.add = function(val) {
       this.pq.splice(index, 0, val);
       return this.pq[0];
     }
-
     return this.pq[0];
 };
 
@@ -49,5 +52,11 @@ KthLargest.prototype.add = function(val) {
 // console.log(kthLargest.add(0));
 
 // [[3,[5,-1]],[2],[1],[-1],[3],[4]]
+// expected [null,-1,1,1,2,3]
 
-
+let kthLargest = new KthLargest(3,[5,-1]);
+console.log(kthLargest.add(2));
+console.log(kthLargest.add(1));
+console.log(kthLargest.add(-1));
+console.log(kthLargest.add(3));
+console.log(kthLargest.add(4));
