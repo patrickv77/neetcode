@@ -2,6 +2,9 @@
  * @param {number} k
  * @param {number[]} nums
  */
+
+// runtime 410ms -- beats 43.76%
+// memory 69.91mb -- beats 9.55%
 var KthLargest = function(k, nums) {
     this.k = k;
     this.pq = nums.sort((a,b) => a-b);
