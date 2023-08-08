@@ -10,6 +10,8 @@ function ListNode(val, next) {
  * @return {void} Do not return anything, modify head in-place instead.
  */
 
+// runtime 472ms -- beats 5.04%
+// memory 49.62mb -- beats 91.30%
 var reorderList = function(head) {
   let left = head;
 
