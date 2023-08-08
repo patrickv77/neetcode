@@ -12,6 +12,7 @@ function ListNode(val, next) {
 
 var reorderList = function(head) {
   let left = head;
+
   while(left.next !== null && left.next.next !== null) {
     const temp = left.next;
     let curr = left;
@@ -29,6 +30,7 @@ var reorderList = function(head) {
     left = temp;
   }
 
+  return head;
 };
 
 const printLinkedList = (head) => {
@@ -39,3 +41,11 @@ const printLinkedList = (head) => {
   }
 }
 
+// const five = new ListNode(5);
+// const four = new ListNode(4, five);
+// const three = new ListNode(3, four);
+// const two = new ListNode(2, three);
+// const one = new ListNode(1, two);
+
+// console.log(printLinkedList(one));
+console.log(printLinkedList(reorderList(one)))
