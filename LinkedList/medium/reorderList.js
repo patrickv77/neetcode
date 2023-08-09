@@ -48,4 +48,4 @@ const printLinkedList = (head) => {
 // const one = new ListNode(1, two);
 
 // console.log(printLinkedList(one));
-console.log(printLinkedList(reorderList(one)))
+// console.log(printLinkedList(reorderList(one)))
