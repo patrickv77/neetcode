@@ -17,6 +17,9 @@ function ListNode(val, next) {
   1 <= n <= sz
 
  */
+
+// runtime 55ms -- beats 81.87%
+// memory 42.05mb -- beats 96.84%
 var removeNthFromEnd = function (head, n) {
   let listSize = linkedListSize(head);
   // if listSize === n, remove first element
@@ -45,22 +48,22 @@ var linkedListSize = function (head) {
   return size;
 };
 
-const five = new ListNode(5);
-const four = new ListNode(4, five);
-const three = new ListNode(3, four);
-const two = new ListNode(2, three);
-const one = new ListNode(1, two);
+// const five = new ListNode(5);
+// const four = new ListNode(4, five);
+// const three = new ListNode(3, four);
+// const two = new ListNode(2, three);
+// const one = new ListNode(1, two);
 
-console.log(one.val);
-console.log(one.next.val);
-console.log(one.next.next.val);
-console.log(one.next.next.next.val);
-console.log(one.next.next.next.next.val);
+// console.log(one.val);
+// console.log(one.next.val);
+// console.log(one.next.next.val);
+// console.log(one.next.next.next.val);
+// console.log(one.next.next.next.next.val);
 
-const newLL = removeNthFromEnd(one, 5);
+// const newLL = removeNthFromEnd(one, 5);
 
-console.log(newLL.val);
-console.log(newLL.next.val);
-console.log(newLL.next.next.val);
-console.log(newLL.next.next.next.val);
-console.log(newLL.next.next.next.next);
+// console.log(newLL.val);
+// console.log(newLL.next.val);
+// console.log(newLL.next.next.val);
+// console.log(newLL.next.next.next.val);
+// console.log(newLL.next.next.next.next);
