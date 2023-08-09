@@ -31,8 +31,6 @@ var reorderList = function(head) {
 
     left = temp;
   }
-
-  return head;
 };
 
 const printLinkedList = (head) => {
