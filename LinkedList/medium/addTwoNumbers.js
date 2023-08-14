@@ -22,7 +22,7 @@ var addTwoNumbers = function(l1, l2) {
   let l1Val, l2Val, res, resCurr;
   let carryOver = false;
 
-  while(l1Curr !== null && l2Curr !== null || carryOver) {
+  while(l1Curr !== null || l2Curr !== null || carryOver) {
     if(l1Curr !== null) {
       l1Val = l1Curr.val;
       l1Curr = l1Curr.next;
@@ -39,15 +39,17 @@ var addTwoNumbers = function(l1, l2) {
     }
 
     let total = (carryOver) ? l1Val + l2Val + 1 : l1Val + l2Val;
+    // console.log(total);
     let newNode;
-    
     if(total >= 10) {
       //total 10-19
       newNode = new ListNode(total - 10);
+      console.log('if', newNode.val);
       carryOver = true;
     }else{
       //total 0-9
       newNode = new ListNode(total);
+      console.log('else', newNode.val);
       carryOver = false;
     }
     
@@ -71,3 +73,20 @@ var addTwoNumbers = function(l1, l2) {
 // const one = new ListNode(5, two);
 
 // addTwoNumbers(one,one);
+
+//1117/1568 passed
+
+/*
+l1 = [1,8]
+l2 = [0]
+
+output [1]
+expected [1,8]
+*/
+
+// const l1B = new ListNode(8);
+// const l1 = new ListNode(1, l1B);
+
+// const l2 = new ListNode(0);
+
+// addTwoNumbers(l1,l2);
