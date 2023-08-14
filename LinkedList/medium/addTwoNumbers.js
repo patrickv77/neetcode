@@ -1,8 +1,7 @@
-
 // Definition for singly-linked list.
 function ListNode(val, next) {
-  this.val = (val===undefined ? 0 : val)
-  this.next = (next===undefined ? null : next)
+  this.val = val === undefined ? 0 : val;
+  this.next = next === undefined ? null : next;
 }
 
 /**
@@ -19,48 +18,49 @@ function ListNode(val, next) {
 
 // runtime 95ms -- beats 69.06%
 // memory 47.50mb -- beats 49.98%
-var addTwoNumbers = function(l1, l2) {
+var addTwoNumbers = function (l1, l2) {
   let l1Curr = l1;
   let l2Curr = l2;
   let l1Val, l2Val, res, resCurr;
   let carryOver = false;
 
-  while(l1Curr !== null || l2Curr !== null || carryOver) {
-    if(l1Curr !== null) {
+  while (l1Curr !== null || l2Curr !== null || carryOver) {
+    // if l1 or l2 are null, set val to 0
+    if (l1Curr !== null) {
       l1Val = l1Curr.val;
       l1Curr = l1Curr.next;
-    }else{
+    } else {
       // set val to 0 in case either list is longer than the other
       l1Val = 0;
     }
 
-    if(l2Curr !== null) {
+    if (l2Curr !== null) {
       l2Val = l2Curr.val;
       l2Curr = l2Curr.next;
-    }else{
+    } else {
       l2Val = 0;
     }
 
-    let total = (carryOver) ? l1Val + l2Val + 1 : l1Val + l2Val;
+    let total = carryOver ? l1Val + l2Val + 1 : l1Val + l2Val;
     // console.log(total);
     let newNode;
-    if(total >= 10) {
-      //total 10-19
+    if (total >= 10) {
+      // total 10-19
       newNode = new ListNode(total - 10);
       console.log('if', newNode.val);
       carryOver = true;
-    }else{
-      //total 0-9
+    } else {
+      // total 0-9
       newNode = new ListNode(total);
       console.log('else', newNode.val);
       carryOver = false;
     }
-    
-    //handle first node
-    if(res === undefined) {
+
+    // handle first node
+    if (res === undefined) {
       res = newNode;
       resCurr = res;
-    }else {
+    } else {
       resCurr.next = newNode;
       resCurr = resCurr.next;
     }
