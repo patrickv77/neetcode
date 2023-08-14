@@ -16,6 +16,9 @@ function ListNode(val, next) {
   0 <= Node.val <= 9
   It is guaranteed that the list represents a number that does not have leading zeros.
  */
+
+// runtime 95ms -- beats 69.06%
+// memory 47.50mb -- beats 49.98%
 var addTwoNumbers = function(l1, l2) {
   let l1Curr = l1;
   let l2Curr = l2;
