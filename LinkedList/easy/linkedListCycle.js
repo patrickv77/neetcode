@@ -1,8 +1,7 @@
-
 // Definition for singly-linked list.
 function ListNode(val, next) {
-  this.val = (val===undefined ? 0 : val)
-  this.next = (next===undefined ? null : next)
+  this.val = val === undefined ? 0 : val;
+  this.next = next === undefined ? null : next;
 }
 
 /**
@@ -18,15 +17,17 @@ function ListNode(val, next) {
 
 // runtime 66ms -- beats 73.30%
 // memory 44.56mb -- beats 87.51%
-var hasCycle = function(head) {
-  if(head === null) return false;
+var hasCycle = function (head) {
+  // base case, if head is null return false
+  if (head === null) return false;
 
+  // slow and fast pointers, if slow ever meets fast, return true, else return false;
   let slow = head;
   let fast = head;
-  while(fast.next !== null && fast.next.next !== null){
+  while (fast.next !== null && fast.next.next !== null) {
     fast = fast.next.next;
     slow = slow.next;
-    if(slow === fast) return true;
+    if (slow === fast) return true;
   }
   return false;
 };
@@ -35,7 +36,7 @@ var hasCycle = function(head) {
 // const four = new ListNode(4, five);
 // const three = new ListNode(3, four);
 // const two = new ListNode(2, three);
-const one = new ListNode(1);
-one.next = one;
+// const one = new ListNode(1);
+// one.next = one;
 
-console.log(hasCycle(one));
+// console.log(hasCycle(one));
