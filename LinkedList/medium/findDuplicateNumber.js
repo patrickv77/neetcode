@@ -3,8 +3,8 @@
  * @return {number}
  */
 
-// runtime 66ms -- beats 73.30%
-// memory 44.56mb -- beats 87.51%
+// runtime 58ms -- beats 99.34%
+// memory 49.66mb -- beats 77.35%
 var findDuplicate = function (nums) {
   let slow = 0,
     fast = 0;
