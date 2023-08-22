@@ -9,6 +9,18 @@ function ListNode(val, next) {
  * @return {ListNode}
  */
 var reverseList = function(head) {
-  // store next as temp, set curr.next to null or prev
+  if(!head) return null;
 
+  let prev = null;
+  let curr = head;
+  let next = curr.next;
+
+  while(next) {
+    curr.next = prev;
+    prev = curr;
+    curr = next;
+    next = next.next;
+  }
+  curr.next = prev;
+  return curr;
 };
