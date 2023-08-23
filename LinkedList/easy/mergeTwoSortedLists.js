@@ -9,6 +9,9 @@ function ListNode(val, next) {
  * @param {ListNode} list2
  * @return {ListNode}
  */
+
+// runtime 80ms -- beats 6.46%
+// memory 44.13mb -- beats 46.99%
 var mergeTwoLists = function (list1, list2) {
   // base case, both empty lists
   if (list1 === null && list2 === null) return null;
@@ -30,10 +33,10 @@ var mergeTwoLists = function (list1, list2) {
     if (l1val > l2val || l1val === undefined) {
       newNode = new ListNode(l2val);
       list2 = list2.next;
-    }else if (l1val < l2val || l2val === undefined) {
+    } else if (l1val < l2val || l2val === undefined) {
       newNode = new ListNode(l1val);
       list1 = list1.next;
-    }else{
+    } else {
       // they are equal, for simplicity and cleanliness of the solution, we will only create one node here
       newNode = new ListNode(l1val);
       list1 = list1.next;
