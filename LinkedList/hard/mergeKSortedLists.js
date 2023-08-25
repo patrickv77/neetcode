@@ -8,8 +8,9 @@ function ListNode(val, next) {
  * @param {ListNode[]} lists
  * @return {ListNode}
  */
+
 var mergeKLists = function (lists) {
-  let resHead, resCurr;
+  let resHead = null, resCurr = null;
 
   while (lists.length !== 0) {
     let min = Infinity;
