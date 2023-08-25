@@ -9,8 +9,11 @@ function ListNode(val, next) {
  * @return {ListNode}
  */
 
+// runtime 396ms -- beats 18.89%
+// memory 74.53mb -- beats 5.03%
 var mergeKLists = function (lists) {
-  let resHead = null, resCurr = null;
+  let resHead = null,
+    resCurr = null;
 
   while (lists.length !== 0) {
     let min = Infinity;
