@@ -9,8 +9,11 @@ function TreeNode(val, left, right) {
  * @param {TreeNode} root
  * @return {TreeNode}
  */
+
+// runtime 48ms -- beats 87.22%
+// memory 42.27mb -- beats 51.72%
 var invertTree = function (root) {
-  if(root === null) return root;
+  if (root === null) return root;
 
   let temp = root.left;
   root.left = root.right;
