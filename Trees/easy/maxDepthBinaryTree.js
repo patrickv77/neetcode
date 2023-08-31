@@ -9,17 +9,23 @@ function TreeNode(val, left, right) {
  * @param {TreeNode} root
  * @return {number}
  */
-var maxDepth = function(root) {
-  if(root === null) return 0;
+
+// runtime 58ms -- beats 78.36%
+// memory 44.88mb -- beats 79.96%
+var maxDepth = function (root) {
+  if (root === null) return 0;
 
   let countDepth = (root, count) => {
-    if(root === null) return count;
+    if (root === null) return count;
     else {
-      return Math.max(countDepth(root.left, count+1), countDepth(root.right, count+1));
+      return Math.max(
+        countDepth(root.left, count + 1),
+        countDepth(root.right, count + 1)
+      );
     }
-  }
+  };
 
-  return Math.max(countDepth(root.left,1), countDepth(root.right,1));
+  return Math.max(countDepth(root.left, 1), countDepth(root.right, 1));
 };
 
 // let three = new TreeNode(3);
