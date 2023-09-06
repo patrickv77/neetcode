@@ -2,6 +2,9 @@
  * @param {number[]} prices
  * @return {number}
  */
+
+// runtime 80ms -- beats 39.22%
+// memory 51.09mb -- beats 94.04%
 var maxProfit = function (prices) {
   if (!Array.isArray(prices)) return 0;
   if (prices.length <= 1) return 0;
