@@ -3,7 +3,8 @@
  * @return {number}
  */
 
-
+// runtime 70ms -- beats 82.60%
+// memory 46.14mb -- beats 82.56%
 var lengthOfLongestSubstring = function (s) {
   let set = new Set();
   let left = 0;
