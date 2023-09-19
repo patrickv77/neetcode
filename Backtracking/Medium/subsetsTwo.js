@@ -6,7 +6,8 @@ var subsetsWithDup = function(nums) {
   let res = {};
   const subsetsHelper = (n, arr) => {
     if(n === nums.length) {
-      if(!res[arr]) res[arr] = arr;
+      let sort = arr.sort((a,b) => a - b);
+      if(!res[sort]) res[sort] = sort;
       return;
     }
 
@@ -20,4 +21,4 @@ var subsetsWithDup = function(nums) {
   return Object.values(res);
 };
 
-console.log(subsetsWithDup([1,2,2]));
+console.log(subsetsWithDup([4,4,4,1,4]));
