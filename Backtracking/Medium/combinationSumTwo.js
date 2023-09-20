@@ -6,11 +6,12 @@
 var combinationSum2 = function (candidates, target) {
   let res = {};
   const combinationHelper = (array, acc, remainingCandidates) => {
+    // console.log(remainingCandidates);
     if (target - acc === 0) {
       array = array.sort((a, b) => a - b);
       if (!res[array]) res[array] = array;
       return;
-    } else if (target - acc < 0) {
+    } else if (target - acc < 0 || remainingCandidates.length <= 0) {
       return;
     } else {
       for (let i = 0; i < remainingCandidates.length; i++) {
@@ -36,4 +37,6 @@ var combinationSum2 = function (candidates, target) {
   return Object.values(res);
 };
 
-console.log(combinationSum2([10,1,2,7,6,1,5], 8))
+// console.log(combinationSum2([1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1], 27))
+console.log(combinationSum2([1,1,1,1,1,1,1,1,1,1],15));
+// [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
