@@ -4,9 +4,11 @@
  * @return {number[][]}
  */
 var combinationSum2 = function (candidates, target) {
+  if(candidates.reduce((acc, x) => acc + x, 0) < target) return [];
+
   let res = {};
   const combinationHelper = (array, acc, remainingCandidates) => {
-    // console.log(remainingCandidates);
+    console.log(remainingCandidates, acc);
     if (target - acc === 0) {
       array = array.sort((a, b) => a - b);
       if (!res[array]) res[array] = array;
@@ -37,6 +39,6 @@ var combinationSum2 = function (candidates, target) {
   return Object.values(res);
 };
 
-// console.log(combinationSum2([1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1], 27))
-console.log(combinationSum2([1,1,1,1,1,1,1,1,1,1],15));
+console.log(combinationSum2([1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1], 27))
+// console.log(combinationSum2([1,1,1,1,1,1,1,1,1],15));
 // [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
