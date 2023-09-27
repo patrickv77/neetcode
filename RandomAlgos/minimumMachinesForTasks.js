@@ -49,7 +49,7 @@ var minMachines = function (start, end) {
   return res.length;
 };
 
-// console.log(minMachines([1, 8, 3, 9, 6], [7, 9, 6, 14, 7])); // 3
+console.log(minMachines([1, 8, 3, 9, 6], [7, 9, 6, 14, 7])); // 3
 console.log(minMachines([1,1,1,1,1,8,16,42,12,14,25,27],[2,3,4,5,6,9,17,43,13,15,26,28])); // 5
 /*
 [
