@@ -38,3 +38,10 @@ var productExceptSelf = function(nums) {
     // return result array
     return res;
 };
+
+console.log(productExceptSelf([1,2,3,4,5]));
+console.log(productExceptSelf([1,1,1,1,1,2]));
+console.log(productExceptSelf([5,5,5,5,0]));
+console.log(productExceptSelf([0,2,2,2,0]));
+console.log(productExceptSelf([0,2,0,2,2]));
+console.log(productExceptSelf([1,2,3,0,4,5]));
