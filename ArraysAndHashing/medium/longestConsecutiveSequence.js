@@ -8,9 +8,34 @@
  *
  */
 var longestConsecutive = function (nums) {
+  // base case
+  if(nums.length === 0) return 0;
+
   // declare a set and add all values of nums to it
+  const numsSet = new Set();
+  for(let number of nums) {
+    numsSet.add(number);
+  }
   // declare a res variable to track the max number of elements among consecutive numbers
+
+  let res = 1; // if there is at least 1 value in nums, res is guaranteed to be at least 1
 
   // loop through the set, for each element, check to see if it has no number before it but has a number after it
   // this guarantees that you are starting from the lowest element
+  for(let setNum of numsSet) {
+    if(!numsSet.has(setNum - 1) && numsSet.has(setNum+1)) {
+      let consecutiveNumCount = 1;
+
+      // count how many consecutive numbers in the sequence
+      while(numsSet.has(setNum + consecutiveNumCount)) {
+        consecutiveNumCount++;
+      }
+      // check against res
+      res = Math.max(res, consecutiveNumCount);
+    }
+  }
+
+  // return res
+  return res;
 };
+
