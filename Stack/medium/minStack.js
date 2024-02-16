@@ -52,6 +52,7 @@ MinStack.prototype.pop = function() {
   }
   delete this.minStack[itr];
 
+  // returns just for testing purposes
   return res;
 };
 
@@ -59,14 +60,14 @@ MinStack.prototype.pop = function() {
  * @return {number}
  */
 MinStack.prototype.top = function() {
-    
+  return this.stack[this.length-1];
 };
 
 /**
  * @return {number}
  */
 MinStack.prototype.getMin = function() {
-    
+  return this.minStack[0];
 };
 
 /** 
@@ -89,3 +90,4 @@ console.log(stak)
 let a = stak.pop();
 console.log(a);
 console.log(stak);
+console.log(stak.top());
