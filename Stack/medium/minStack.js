@@ -67,3 +67,11 @@ MinStack.prototype.getMin = function() {
  * var param_3 = obj.top()
  * var param_4 = obj.getMin()
  */
+
+var stak = new MinStack();
+stak.push(1);
+stak.push(2);
+console.log(stak)
+stak.push(3);
+stak.push(0);
+console.log(stak)
