@@ -32,17 +32,27 @@ MinStack.prototype.push = function(val) {
   this.length++;
 };
 
-/*
-
-
-
-*/
-
 /**
  * @return {void}
  */
 MinStack.prototype.pop = function() {
-    
+  this.length--;
+
+  let res = this.stack[this.length];
+  delete this.stack[this.length];
+
+  let itr = 0;
+  while(this.minStack[itr] !== res) {
+    itr++;
+  }
+
+  while(itr < this.length) {
+    this.minStack[itr] = this.minStack[itr+1];
+    itr++;
+  }
+  delete this.minStack[itr];
+
+  return res;
 };
 
 /**
@@ -73,5 +83,9 @@ stak.push(1);
 stak.push(2);
 console.log(stak)
 stak.push(3);
+stak.push(-1);
 stak.push(0);
 console.log(stak)
+let a = stak.pop();
+console.log(a);
+console.log(stak);
