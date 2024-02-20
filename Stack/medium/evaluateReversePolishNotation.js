@@ -8,5 +8,10 @@
  * 
  */
 var evalRPN = function(tokens) {
-    
+    // add integers to the stack
+    // when an operator is encountered, pop from the stack and evaluate using the operator
+    // push the result back onto the stack
+    // continue until the end of tokens
+
+    // return the last value in the stack
 };
