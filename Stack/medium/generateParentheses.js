@@ -28,3 +28,9 @@ var generateParenthesis = function(n) {
 
   return res;
 };
+
+console.log(generateParenthesis(3));
+console.log(generateParenthesis(2));
+console.log(generateParenthesis(1));
+console.log(generateParenthesis(0));
+console.log(generateParenthesis(7));
