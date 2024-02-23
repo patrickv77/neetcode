@@ -13,6 +13,9 @@
  * 0 < speed[i] <= 106
  * 
  */
+
+// runtime 164ms -- beats 93.57%
+// memory 67.78mb -- beats 91.47%
 var carFleet = function(target, position, speed) {
   // key observations, if a car in a position further away reaches the target BEFORE or AT THE SAME TIME as the car in front,
   // then it is considered part of the front car's fleet
