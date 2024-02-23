@@ -19,5 +19,33 @@ var carFleet = function(target, position, speed) {
 
   // sorting the cars by order simplifies the solution greatly, however you must anchor the speed affiliated with the car to the newly sorted array
 
+  const n = position.length;
+  const indices = [];
+  // fill indices
+  for(let i = 0; i < n; i++) indices.push(i);
 
+  // sort indices based on POSITION
+  indices.sort((a,b) => position[b] - position[a]);
+
+  // declare starting position
+  let curr = indices[0];
+  // track number of fleets
+  let res = 1;
+
+  // loop through starting with the 2nd highest position.. ie indices[1]
+  for(let i = 1; i < n; i++) {
+    let index = indices[i];
+    // check if the fleet in front reaches target before the current index...
+    // if it does, then we know there is another fleet...
+    // increment res (fleet counter) and set new "head" of the fleet
+    if((target - position[index]) * speed[curr] > (target - position[curr]) * speed[index]) {
+      res++;
+      curr = index;
+    }
+  }
+
+  // return fleet count
+  return res;
 };
+
+console.log(carFleet(12,[10,8,0,5,3],[2,4,1,1,3]));
