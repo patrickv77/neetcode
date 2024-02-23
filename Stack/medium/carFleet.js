@@ -14,5 +14,10 @@
  * 
  */
 var carFleet = function(target, position, speed) {
-    
+  // key observations, if a car in a position further away reaches the target BEFORE or AT THE SAME TIME as the car in front,
+  // then it is considered part of the front car's fleet
+
+  // sorting the cars by order simplifies the solution greatly, however you must anchor the speed affiliated with the car to the newly sorted array
+
+
 };
