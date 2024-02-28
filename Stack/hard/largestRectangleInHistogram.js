@@ -22,22 +22,24 @@ var largestRectangleArea = function (heights) {
       indexStack.push(i);
     } else {
       // if it is less than, then we evaluate all previous values before continuing with a lesser value
-      while(stack[stack.length - 1] >= 0 && heights[i] <= heights[stack[stack.length-1]]){
+      while(indexStack[indexStack.length - 1] >= 0 && heights[i] <= heights[indexStack[indexStack.length-1]]){
         // all values of height should be arranged in decreasing order, as you pop from the stack
         // you evaluate the maximum rectangle area and compare it to your maxArea variable
-        let index = stack.pop();
-        maxArea = Math.max(maxArea, (i - stack[stack.length -1] - 1) * heights[index]);
+        let index = indexStack.pop();
+        maxArea = Math.max(maxArea, (i - indexStack[indexStack.length -1] - 1) * heights[index]);
       }
       indexStack.push(i);
     }
   }
   
   // if the numbers continually increase in height until the end, then we will exit the for loop before evaluating for maxArea
-  while(stack[stack.length - 1] >= 0) {
-    let index = stack.pop();
-    maxArea = Math.max(maxArea, (heights.length - stack[stack.length - 1] - 1) * heights[index]);
+  while(indexStack[indexStack.length - 1] >= 0) {
+    let index = indexStack.pop();
+    maxArea = Math.max(maxArea, (heights.length - indexStack[indexStack.length - 1] - 1) * heights[index]);
   }
   
   // return max area
   return maxArea;
 };
+
+console.log(largestRectangleArea([2, 1, 5, 6, 2, 3]));
