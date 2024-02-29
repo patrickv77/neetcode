@@ -8,12 +8,27 @@
  * 
  */
 var threeSum = function(nums) {
-    // three pointers
+
+    // declare a res array
+    const res = [];
+    // three pointers approach
     // first step would be to sort the array
+    const arr = [...nums]; // so we do not change the input variable
+    arr.sort((a,b) => a-b); // sort from least to greatest
 
     // loop through the new array one time
-    // declare two pointers, one starting in front of the for loop, one starting from the end
-    // adjust the left and right pointers according to the sum of the three pointers
+    for(let i = 0; i < arr.length - 2; i++) {
+      // declare two pointers, one starting in front of the for loop, one starting from the end
+      // adjust the left and right pointers according to the sum of the three pointers
+      let j = i+1;
+      let k = arr.length - 1;
+      while(j < k) {
+        if(arr[i] + arr[j] + arr[k] === 0) res.push([arr[i], arr[j], arr[k]]);
+        else if(arr[i] + arr[j] + arr[k] < 0) j++;
+        else k--;
+      }
+    }
 
-    // return empty array if you make it out of the for loop
+    // return res
+    return res;
 };
