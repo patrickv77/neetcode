@@ -20,11 +20,21 @@ var threeSum = function(nums) {
     for(let i = 0; i < arr.length - 2; i++) {
       // declare two pointers, one starting in front of the for loop, one starting from the end
       // adjust the left and right pointers according to the sum of the three pointers
+      if(arr[i] > 0) break;
+      if(i>0 && arr[i] === arr[i-1]) continue;
+
       let j = i+1;
       let k = arr.length - 1;
       while(j < k) {
-        if(arr[i] + arr[j] + arr[k] === 0) res.push([arr[i], arr[j], arr[k]]);
-        else if(arr[i] + arr[j] + arr[k] < 0) j++;
+        if(arr[i] + arr[j] + arr[k] === 0) {
+          res.push([arr[i], arr[j], arr[k]]);
+
+          while(arr[j] === arr[j+1]) j++;
+          while(arr[k] === arr[k-1]) k--;
+
+          j++;
+          k--;
+        }else if(arr[i] + arr[j] + arr[k] < 0) j++;
         else k--;
       }
     }
@@ -32,3 +42,4 @@ var threeSum = function(nums) {
     // return res
     return res;
 };
+
