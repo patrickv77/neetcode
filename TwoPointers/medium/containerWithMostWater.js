@@ -10,7 +10,7 @@
  */
 var maxArea = function(height) {
   // two pointer approach
-  let maxArea = 0;
+  let max = 0;
   // one pointer starts at the front and one at the back
   let l = 0;
   let r = height.length - 1;
@@ -19,7 +19,7 @@ var maxArea = function(height) {
   // exit the loop when the index at the pointers is the same
   while (l < r) {
     let distance = r - l;
-    maxArea = Math.max(maxArea, Math.max(height[l], height[r]) * distance);
+    max = Math.max(max, Math.min(height[l], height[r]) * distance);
     if(height[l] > height[r]){
       r--;
     }else{
@@ -28,6 +28,10 @@ var maxArea = function(height) {
   }
 
   // return the max area
-  return maxArea;
+  return max;
 };
 
+console.log(maxArea([1,8,6,2,5,4,8,3,7]));
+console.log(maxArea([1,1]));
+console.log(maxArea([1,1,1,1,1,1,2,1]));
+console.log(maxArea([2,1,1,2]));
