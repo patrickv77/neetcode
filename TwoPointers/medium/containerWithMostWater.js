@@ -1,14 +1,17 @@
 /**
  * @param {number[]} height
  * @return {number}
- * 
+ *
  * Constraints:
  * n == height.length
  * 2 <= n <= 105
  * 0 <= height[i] <= 104
- * 
+ *
  */
-var maxArea = function(height) {
+
+// runtime 83ms -- beats 10.72%
+// memory 56.33mb -- beats 66.22%
+var maxArea = function (height) {
   // two pointer approach
   let max = 0;
   // one pointer starts at the front and one at the back
@@ -20,9 +23,9 @@ var maxArea = function(height) {
   while (l < r) {
     let distance = r - l;
     max = Math.max(max, Math.min(height[l], height[r]) * distance);
-    if(height[l] > height[r]){
+    if (height[l] > height[r]) {
       r--;
-    }else{
+    } else {
       l++;
     }
   }
@@ -31,7 +34,7 @@ var maxArea = function(height) {
   return max;
 };
 
-console.log(maxArea([1,8,6,2,5,4,8,3,7]));
-console.log(maxArea([1,1]));
-console.log(maxArea([1,1,1,1,1,1,2,1]));
-console.log(maxArea([2,1,1,2]));
+console.log(maxArea([1, 8, 6, 2, 5, 4, 8, 3, 7]));
+console.log(maxArea([1, 1]));
+console.log(maxArea([1, 1, 1, 1, 1, 1, 2, 1]));
+console.log(maxArea([2, 1, 1, 2]));
