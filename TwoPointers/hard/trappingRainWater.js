@@ -8,9 +8,15 @@
  * 0 <= height[i] <= 105
  *
  */
+
+// runtime 59ms -- beats 63.82%
+// memory 50.01mb -- beats 57.41%
 var trap = function (height) {
   let res = 0;
-  let left = 0, right = height.length - 1, left_max = 0, right_max = 0;
+  let left = 0,
+    right = height.length - 1,
+    left_max = 0,
+    right_max = 0;
 
   // left and right move towards each other
   while (left <= right) {
@@ -28,6 +34,5 @@ var trap = function (height) {
   return res;
 };
 
-console.log(trap([0,1,0,2,1,0,1,3,2,1,2,1]));
-console.log(trap([4,2,0,3,2,5]));
-
+console.log(trap([0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1]));
+console.log(trap([4, 2, 0, 3, 2, 5]));
