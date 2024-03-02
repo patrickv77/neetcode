@@ -9,29 +9,25 @@
  *
  */
 var trap = function (height) {
-  // use two pointers
-  // they start at the same point
   let res = 0;
-  let trailing = 0;
-  let forward = 0;
-  
-  // tried to move forward incrementally but fails when decreases multiple steps in a row..
-  for(forward; forward <= height.length - 2; forward++) {
-    console.log(height[forward], height[forward+1]);
-    console.log("res:", res)
-    if(height[forward] > height[forward+1]) {
-      let heightMin = Math.min(height[trailing], height[forward]);
-      while(trailing < forward) {
-        console.log("height forward", height[forward]);
-        console.log("height min: ", heightMin);
-        console.log("height[trailing]: ", height[trailing]);
-        res += heightMin - height[trailing];
-        trailing++;
-      }
+  let left = 0, right = height.length - 1, left_max = 0, right_max = 0;
+
+  // left and right move towards each other
+  while (left <= right) {
+    if (height[left] <= height[right]) {
+      if (height[left] > left_max) left_max = height[left];
+      else res += left_max - height[left];
+      left++;
+    } else {
+      if (height[right] > right_max) right_max = height[right];
+      else res += right_max - height[right];
+      right--;
     }
   }
-  
+
   return res;
 };
 
 console.log(trap([0,1,0,2,1,0,1,3,2,1,2,1]));
+console.log(trap([4,2,0,3,2,5]));
+
