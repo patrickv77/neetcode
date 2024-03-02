@@ -15,9 +15,7 @@ var trap = function (height) {
   let trailing = 0;
   let forward = 0;
   
-  // forward pointer moves until it is greater than or equal to height of prev pointer
-  // as pointer moves, add height difference of each step
-  // when the forward pointer reaches a greater than or equal height, move prev pointer to forward pointer location
+  // tried to move forward incrementally but fails when decreases multiple steps in a row..
   for(forward; forward <= height.length - 2; forward++) {
     console.log(height[forward], height[forward+1]);
     console.log("res:", res)
