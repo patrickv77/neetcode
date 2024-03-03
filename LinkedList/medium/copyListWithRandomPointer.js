@@ -18,5 +18,11 @@
  * @return {Node}
  */
 var copyRandomList = function(head) {
-    
+  // traverse the list twice
+
+  // first pass, create new nodes using the current node's value and place in a hashmap
+
+  // second pass, map the next and random values of each node
+
+  // return new head
 };
