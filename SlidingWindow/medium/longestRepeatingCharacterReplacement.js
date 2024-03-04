@@ -31,3 +31,8 @@ var characterReplacement = function(s, k) {
     // return the length of the sliding window r minus l
     return r - l;
 };
+
+console.log(characterReplacement('ABAB', 2));
+console.log(characterReplacement('AABABBA', 1));
+console.log(characterReplacement('ABACAB', 2));
+console.log(characterReplacement('AAABBBAAABBAAA', 2));
