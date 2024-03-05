@@ -13,6 +13,7 @@
 var minWindow = function(s, t) {
   // base case
   if(t.length > s.length) return "";
+  if(s === t) return t;
 
   // use a sliding window of length t to search through s
   // when it reaches the end, increment sliding window size and go again
@@ -63,4 +64,5 @@ console.log(minWindow("ADOBECODEBANC", "ABC"));
 console.log(minWindow("A", "A"));
 console.log(minWindow("A", "AA"));
 console.log(minWindow("ABCDGAAAAAA", "DCBA"));
+console.log(minWindow("A", "B"));
 console.log(minWindow("IJKLMNOP", "LNOP"));
