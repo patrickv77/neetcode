@@ -27,21 +27,32 @@ var minWindow = function(s, t) {
         }
       }else{ 
         // remove previous and add next
-        // console.log("dict at s[i-1]]", dict[s[i-1]]);
-        if(dict[s[i-1]] === 1) delete dict[s[i-1]];
-        else dict[s[i-1]]--;
+        // console.log("REMOVE dict at s[i-1]]", s[i-1]);
+        if(dict[s[i-1]] === 1) {
+          delete dict[s[i-1]];
+          // console.log(dict);
+        }
+        else {
+          dict[s[i-1]]--;
+          // console.log(dict);
+        }
 
-        dict[s[i+window]] = dict[s[i+window]] + 1 || 1;
+        // console.log("ADD dict at s[i+window]]", s[i+window]);
+        dict[s[i+window-1]] = dict[s[i+window-1]] + 1 || 1;
+        // console.log(dict);
       }
+      // console.log("window:",window);
       // console.log(dict);
-      // console.log(s.substring(i, i+window+1));
+      // console.log(s.slice(i, i+window));
+      // console.log("====================================")
       for(let k = 0; k < t.length; k++) {
         if(dict[t[k]] === undefined) break;
         // return as soon as output is found
-        if(k === t.length - 1) return s.substring(i, i+window+1);
+        if(k === t.length - 1) return s.slice(i, i+window);
       }
     }
-    window++;
+
+    window+=1;
   }
   
   // if nothing is found return ""
@@ -49,3 +60,7 @@ var minWindow = function(s, t) {
 };
 
 console.log(minWindow("ADOBECODEBANC", "ABC"));
+console.log(minWindow("A", "A"));
+console.log(minWindow("A", "AA"));
+console.log(minWindow("ABCDGAAAAAA", "DCBA"));
+console.log(minWindow("IJKLMNOP", "LNOP"));
