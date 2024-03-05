@@ -28,24 +28,16 @@ var minWindow = function(s, t) {
         }
       }else{ 
         // remove previous and add next
-        // console.log("REMOVE dict at s[i-1]]", s[i-1]);
         if(dict[s[i-1]] === 1) {
           delete dict[s[i-1]];
-          // console.log(dict);
         }
         else {
           dict[s[i-1]]--;
-          // console.log(dict);
         }
 
-        // console.log("ADD dict at s[i+window]]", s[i+window]);
         dict[s[i+window-1]] = dict[s[i+window-1]] + 1 || 1;
-        // console.log(dict);
       }
-      // console.log("window:",window);
-      // console.log(dict);
-      // console.log(s.slice(i, i+window));
-      // console.log("====================================")
+
       for(let k = 0; k < t.length; k++) {
         if(dict[t[k]] === undefined) break;
         // return as soon as output is found
