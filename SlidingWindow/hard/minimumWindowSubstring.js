@@ -43,12 +43,8 @@ var minWindow = function(s, t) {
         dict[s[i+window-1]] = dict[s[i+window-1]] + 1 || 1;
       }
 
-      // console.log(dict)
       for(let k = 0; k < tCountKeys.length; k++) {
-        // console.log('tcountkeys[k]', tCountKeys[k])
-        // console.log('tcounts[tcountkeys[k]]', tCounts[tCountKeys[k]])
-        // console.log('dict[tcountkeys[k]]', dict[tCountKeys[k]])
-        if(tCounts[tCountKeys[k]] !== dict[tCountKeys[k]]) break;
+        if(tCounts[tCountKeys[k]] > dict[tCountKeys[k]] || dict[tCountKeys[k]] === undefined) break;
         // return as soon as output is found
         if(k === tCountKeys.length - 1) return s.slice(i, i+window);
       }
@@ -70,7 +66,8 @@ var minWindow = function(s, t) {
 // console.log(minWindow("IJKLMNOP", "LNOP")); //LMNOP
 
 // console.log(minWindow("ABC", "AC")); // ABC
-console.log(minWindow("bbaa", "aba")) // baa
+// console.log(minWindow("bbaa", "aba")) // baa
+console.log(minWindow("aaaaaaaaaaaabbbbbcdd", "abcdd"));
 
 /*
 failed... 147/267
