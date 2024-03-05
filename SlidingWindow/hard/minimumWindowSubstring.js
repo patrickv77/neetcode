@@ -18,8 +18,8 @@ var minWindow = function(s, t) {
   // when it reaches the end, increment sliding window size and go again
   let window = t.length;
   while(window < s.length) {
-    for(let i = 0; i < s.length - window; i++) {
-      const dict = {};
+    const dict = {};
+    for(let i = 0; i < s.length - window + 1; i++) {
       if(Object.keys(dict).length === 0) {
         for(let j = 0; j < window; j++) {
           // populate the first window
@@ -27,16 +27,18 @@ var minWindow = function(s, t) {
         }
       }else{ 
         // remove previous and add next
-        if(dict[s[j-1]] === 1) delete dict[s[j-1]];
-        else dict[s[j-1]]--;
+        // console.log("dict at s[i-1]]", dict[s[i-1]]);
+        if(dict[s[i-1]] === 1) delete dict[s[i-1]];
+        else dict[s[i-1]]--;
 
-        dict[s[j]] = dict[s[j]] + 1 || 1;
+        dict[s[i+window]] = dict[s[i+window]] + 1 || 1;
       }
-
+      // console.log(dict);
+      // console.log(s.substring(i, i+window+1));
       for(let k = 0; k < t.length; k++) {
         if(dict[t[k]] === undefined) break;
         // return as soon as output is found
-        if(k === t.length - 1) return s.substring(i, i+window);
+        if(k === t.length - 1) return s.substring(i, i+window+1);
       }
     }
     window++;
@@ -45,3 +47,5 @@ var minWindow = function(s, t) {
   // if nothing is found return ""
   return "";
 };
+
+console.log(minWindow("ADOBECODEBANC", "ABC"));
