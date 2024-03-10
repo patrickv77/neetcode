@@ -14,4 +14,5 @@ var maxSlidingWindow = function (nums, k) {
   // if you find a new max, deque everything. otherwise add it to the stack
 
   // key insight: length of output is nums.length - k + 1
+  // should be O(N) time
 };
