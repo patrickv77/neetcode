@@ -8,6 +8,24 @@
 // to compare and check validity.
 var isValid = function (s) {
 
+  const validParens = {
+    '[': ']',
+    '{': '}',
+    '(': ')'
+  }
+  const openStack = [];
+  
+  for(let paren of s) {
+    if(validParens[paren] !== undefined){
+      openStack.push(paren);
+    }else{
+      console.log(openStack);
+      if(validParens[openStack.pop()] !== paren) return false;
+      console.log(openStack);
+    }
+  }
 
+  if(openStack.length !== 0) return false;
 
+  return true;
 };
