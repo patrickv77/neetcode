@@ -19,9 +19,7 @@ var isValid = function (s) {
     if(validParens[paren] !== undefined){
       openStack.push(paren);
     }else{
-      console.log(openStack);
       if(validParens[openStack.pop()] !== paren) return false;
-      console.log(openStack);
     }
   }
 
